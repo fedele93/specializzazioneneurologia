@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festa di Specializzazione in Neurologia 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* Design System Variables */
+        :root {
+            /* Primary Colors */
+            --color-primary: #2C5F8D;
+            --color-primary-light: #3A7BB8;
+            --color-primary-dark: #1E4366;
+            --color-secondary: #E8F4F8;
+            --color-accent: #D4AF37;
+            --color-accent-light: #E5C556;
+            
+            /* Neutral Colors */
+            --color-white: #FFFFFF;
+            --color-gray-50: #F9FAFB;
+            --color-gray-100: #F3F4F6;
+            --color-gray-200: #E5E7EB;
+            --color-gray-300: #D1D5DB;
+            --color-gray-400: #9CA3AF;
+            --color-gray-500: #6B7280;
+            --color-gray-600: #4B5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1F2937;
+            --color-gray-900: #111827;
+            
+            /* Semantic Colors */
+            --color-success: #10B981;
+            --color-error: #EF4444;
+            --color-warning: #F59E0B;
+            --color-info: #3B82F6;
+            
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Transitions */
+            --transition-fast: 150ms ease-in-out;
+            --transition-normal: 300ms ease-in-out;
+            --transition-slow: 500ms ease-in-out;
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--color-gray-800);
+            background-color: var(--color-white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--space-4);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.875rem;
+        }
+        
+        h4 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: var(--space-4);
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-gray-200);
+            z-index: 1000;
+            transition: var(--transition-fast);
+        }
+        
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .navbar-brand {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: var(--space-6);
+        }
+        
+        .nav-link {
+            color: var(--color-gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-fast);
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-md);
+        }
+        
+        .nav-link:hover {
+            color: var(--color-primary);
+            background-color: var(--color-secondary);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 50%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            padding: 120px 0 var(--space-20);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            margin-bottom: var(--space-6);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-8);
+            opacity: 0.9;
+        }
+        
+        .graduates-list {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-8);
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-gray-900);
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-fast);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cta-button:hover {
+            background: var(--color-accent-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+        
+        /* Section */
+        .section {
+            padding: var(--space-20) 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-12);
+        }
+        
+        .section-title {
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--color-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+            border: 1px solid var(--color-gray-100);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-secondary);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-6);
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-3);
+            color: var(--color-gray-800);
+        }
+        
+        .card-content {
+            color: var(--color-gray-600);
+        }
+        
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: var(--space-6);
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        /* Event Details */
+        .event-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-4);
+        }
+        
+        .event-info i {
+            color: var(--color-primary);
+            margin-right: var(--space-3);
+            width: 20px;
+        }
+        
+        .event-schedule {
+            background: var(--color-gray-50);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin-top: var(--space-6);
+        }
+        
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            padding: var(--space-3) 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .schedule-time {
+            font-weight: 600;
+            color: var(--color-primary);
+            min-width: 80px;
+            margin-right: var(--space-4);
+        }
+        
+        /* Payment Options */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+        }
+        
+        .payment-option {
+            background: var(--color-white);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            text-align: center;
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .payment-option:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .payment-icon {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .payment-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+            color: var(--color-gray-800);
+        }
+        
+        .payment-details {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+        
+        /* Forms */
+        .form {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-6);
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+            color: var(--color-gray-700);
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+            background: var(--color-white);
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(44, 95, 141, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: var(--space-4);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .radio-option:hover {
+            border-color: var(--color-primary);
+            background: var(--color-secondary);
+        }
+        
+        .radio-option input[type="radio"] {
+            margin-right: var(--space-3);
+            accent-color: var(--color-primary);
+        }
+        
+        .radio-option.selected {
+            border-color: var(--color-primary);
+            background: var(--color-secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: var(--space-4) var(--space-8);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            line-height: 1;
+        }
+        
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary {
+            background: var(--color-accent);
+            color: var(--color-gray-900);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-accent-light);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-large {
+            padding: var(--space-5) var(--space-10);
+            font-size: 1.125rem;
+            border-radius: var(--radius-lg);
+        }
+        
+        .btn-full {
+            width: 100%;
+        }
+        
+        /* Photo Upload Section */
+        .photo-upload {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-white) 100%);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-12);
+            text-align: center;
+            border: 2px dashed var(--color-primary);
+        }
+        
+        .upload-icon {
+            font-size: 4rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: var(--transition-normal);
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-gray-400);
+            cursor: pointer;
+            padding: var(--space-2);
+            border-radius: var(--radius-full);
+            transition: var(--transition-fast);
+        }
+        
+        .modal-close:hover {
+            color: var(--color-gray-600);
+            background: var(--color-gray-100);
+        }
+        
+        /* Success Message */
+        .success-message {
+            background: var(--color-success);
+            color: var(--color-white);
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-6);
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideInDown 0.5s ease-out;
+        }
+        
+        /* Animation */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        /* Contribution Summary */
+        .contribution-summary {
+            background: var(--color-accent);
+            color: var(--color-gray-900);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .contribution-total {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-4);
+        }
+        
+        .contact-info i {
+            color: var(--color-primary);
+            margin-right: var(--space-3);
+            width: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-gray-900);
+            color: var(--color-white);
+            padding: var(--space-12) 0 var(--space-8);
+            text-align: center;
+        }
+        
+        .footer-content {
+            margin-bottom: var(--space-6);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-6);
+            margin-bottom: var(--space-6);
+        }
+        
+        .footer-link {
+            color: var(--color-gray-300);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+        
+        .footer-link:hover {
+            color: var(--color-white);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: var(--space-8);
+            right: var(--space-8);
+            background: var(--color-primary);
+            color: var(--color-white);
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-fast);
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--color-white);
+                flex-direction: column;
+                padding: var(--space-4);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                transition: var(--transition-normal);
+            }
+            
+            .navbar-nav.active {
+                transform: translateY(0);
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .section {
+                padding: var(--space-12) 0;
+            }
+            
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .radio-group {
+                gap: var(--space-2);
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 var(--space-3);
+            }
+            
+            .card {
+                padding: var(--space-6);
+            }
+            
+            .form {
+                padding: var(--space-6);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#home" class="navbar-brand">
+                <i class="fas fa-brain"></i> Neurologia 2025
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#ceremony" class="nav-link">Seduta</a></li>
+                <li><a href="#party" class="nav-link">Festa</a></li>
+                <li><a href="#contribution" class="nav-link">Contributo</a></li>
+                <li><a href="#photos" class="nav-link">Foto</a></li>
+                <li><a href="#rsvp" class="nav-link">RSVP</a></li>
+                <li><a href="#contact" class="nav-link">Contatti</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Festa di Specializzazione in Neurologia</h1>
+            <p class="hero-subtitle">Celebriamo insieme questo importante traguardo</p>
+            <div class="graduates-list">
+                <strong>I nostri nuovi specialisti:</strong><br>
+                Dr. Mario Rossi • Dr.ssa Laura Bianchi • Dr. Giuseppe Verdi
+            </div>
+            <p style="font-size: 1.125rem; margin-bottom: 2rem;">28 Novembre 2025</p>
+            <a href="#rsvp" class="cta-button">
+                <i class="fas fa-calendar-check"></i> Conferma la tua presenza
+            </a>
+        </div>
+    </section>
+
+    <!-- Graduation Ceremony Section -->
+    <section id="ceremony" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Seduta di Laurea</h2>
+                <p class="section-subtitle">Informazioni sulla cerimonia di conferimento del titolo di specialista</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="card-title">Dettagli della Cerimonia</h3>
+                    <div class="card-content">
+                        <div class="event-info">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span><strong>Data:</strong> 28 Novembre 2025</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-clock"></i>
+                            <span><strong>Ora:</strong> 10:00</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span><strong>Luogo:</strong> Aula Magna, Università degli Studi di Bari</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-location-arrow"></i>
+                            <span>Piazza Giulio Cesare, 70124 Bari BA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3 class="card-title">Informazioni Importanti</h3>
+                    <div class="card-content">
+                        <div class="event-info">
+                            <i class="fas fa-user-tie"></i>
+                            <span><strong>Dress Code:</strong> Formale</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span><strong>Importante:</strong> Si prega di arrivare 15 minuti prima dell'inizio</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span><a href="https://maps.google.com?q=Piazza+Giulio+Cesare,+70124+Bari+BA" target="_blank">Visualizza su Google Maps</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Graduation Party Section -->
+    <section id="party" class="section" style="background-color: var(--color-gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Festa di Laurea</h2>
+                <p class="section-subtitle">Celebriamo insieme con una serata indimenticabile</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-party-horn"></i>
+                    </div>
+                    <h3 class="card-title">Dettagli della Festa</h3>
+                    <div class="card-content">
+                        <div class="event-info">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span><strong>Data:</strong> 28 Novembre 2025</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-clock"></i>
+                            <span><strong>Ora:</strong> 20:00</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-utensils"></i>
+                            <span><strong>Ristorante:</strong> La Terrazza</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-location-arrow"></i>
+                            <span>Lungomare Nazario Sauro, 70121 Bari BA</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-user-tie"></i>
+                            <span><strong>Dress Code:</strong> Elegante</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span><a href="https://maps.google.com?q=Lungomare+Nazario+Sauro,+70121+Bari+BA" target="_blank">Visualizza su Google Maps</a></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-list-alt"></i>
+                    </div>
+                    <h3 class="card-title">Programma della Serata</h3>
+                    <div class="card-content">
+                        <div class="event-schedule">
+                            <div class="schedule-item">
+                                <div class="schedule-time">20:00</div>
+                                <div>Aperitivo di benvenuto</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">20:30</div>
+                                <div>Cena</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">22:30</div>
+                                <div>Brindisi e torta</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">23:00</div>
+                                <div>Musica e festeggiamenti</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contribution Section -->
+    <section id="contribution" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contributo per il Regalo</h2>
+                <p class="section-subtitle">Partecipa alla raccolta per un regalo speciale ai nostri neo-specialisti</p>
+            </div>
+            
+            <!-- Contribution Summary -->
+            <div class="contribution-summary">
+                <div class="contribution-total" id="totalContributions">€ 0</div>
+                <p>Raccolti finora • Obiettivo: € 600</p>
+            </div>
+            
+            <!-- Payment Options -->
+            <h3 style="text-align: center; margin-bottom: var(--space-6); color: var(--color-primary);">Modalità di Pagamento</h3>
+            <div class="payment-grid">
+                <div class="payment-option">
+                    <div class="payment-icon">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <div class="payment-name">PayPal</div>
+                    <div class="payment-details">
+                        <p><strong>Link:</strong> paypal.me/festaneuro2025</p>
+                        <p>Clicca sul link o scansiona il QR code</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="payment-name">Satispay</div>
+                    <div class="payment-details">
+                        <p><strong>Numero:</strong> +39 123 456 7890</p>
+                        <p>Cerca questo numero su Satispay</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <div class="payment-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="payment-name">Bonifico Bancario</div>
+                    <div class="payment-details">
+                        <p><strong>IBAN:</strong> IT60 X012 3456 7890 1234 5678 901</p>
+                        <p><strong>Intestatario:</strong> Mario Rossi</p>
+                        <p><strong>Causale:</strong> Regalo specializzazione Neurologia</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <div class="payment-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="payment-name">Contanti</div>
+                    <div class="payment-details">
+                        <p>Consegna in busta durante la festa</p>
+                        <p>Oppure consegna agli organizzatori</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contribution Form -->
+            <div class="form">
+                <h3 style="margin-bottom: var(--space-6); color: var(--color-primary); text-align: center;">Registra il Tuo Contributo</h3>
+                
+                <div id="successMessage" class="success-message">
+                    <i class="fas fa-check-circle"></i> Grazie per il tuo contributo! Ti abbiamo reindirizzato al modulo per completare la registrazione.
+                </div>
+                
+                <form id="contributionForm">
+                    <div class="form-group">
+                        <label class="form-label">Tipo di Contributo</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="contributionType" value="equal" checked>
+                                <span><strong>Quota equa:</strong> € 20 a persona (costo stimato diviso per i partecipanti)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="contributionType" value="custom">
+                                <span><strong>Importo personalizzato</strong></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="customAmountGroup" style="display: none;">
+                        <label for="customAmount" class="form-label">Importo Personalizzato (€)</label>
+                        <input type="number" id="customAmount" class="form-input" min="1" step="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contributorName" class="form-label">Nome e Cognome *</label>
+                        <input type="text" id="contributorName" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contributorEmail" class="form-label">Email (opzionale)</label>
+                        <input type="email" id="contributorEmail" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Messaggio di Auguri</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="messageType" value="generic" checked>
+                                <span><strong>Messaggio generico:</strong> "Congratulazioni per il traguardo raggiunto! Auguri per il futuro!"</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="messageType" value="custom">
+                                <span><strong>Messaggio personalizzato</strong></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="customMessageGroup" style="display: none;">
+                        <label for="customMessage" class="form-label">Il Tuo Messaggio</label>
+                        <textarea id="customMessage" class="form-textarea" placeholder="Scrivi il tuo messaggio di auguri personalizzato..."></textarea>
+                    </div>
+                    
+                    <p style="font-size: 0.9rem; color: var(--color-gray-600); margin-bottom: var(--space-6); text-align: center;">
+                        <i class="fas fa-info-circle"></i> Tutti i contributi sono volontari. Dopo aver inviato questo modulo, sarai reindirizzato al modulo Google per completare la registrazione.
+                    </p>
+                    
+                    <button type="submit" class="btn btn-primary btn-large btn-full">
+                        <i class="fas fa-heart"></i> Registra Contributo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Upload Section -->
+    <section id="photos" class="section" style="background-color: var(--color-gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Condividi le Tue Foto</h2>
+                <p class="section-subtitle">Carica le tue foto in modo anonimo per creare un album condiviso dei ricordi</p>
+            </div>
+            
+            <div class="photo-upload">
+                <div class="upload-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Carica le Tue Foto in Modo Anonimo</h3>
+                <p style="color: var(--color-gray-600); margin-bottom: var(--space-6);">Le foto saranno raccolte in modo privato e condivise con tutti i partecipanti dopo l'evento</p>
+                <button class="btn btn-secondary btn-large" onclick="openPhotoModal()">
+                    <i class="fas fa-upload"></i> Carica Foto Adesso
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Conferma la Tua Presenza</h2>
+                <p class="section-subtitle">Compila il modulo per confermare la tua partecipazione alla festa</p>
+            </div>
+            
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <h3 style="text-align: center; margin-bottom: var(--space-6); color: var(--color-primary);">Modulo RSVP</h3>
+                <p style="text-align: center; color: var(--color-gray-600); margin-bottom: var(--space-6);">
+                    Compila il modulo sottostante per confermare la tua presenza. Se il modulo non si carica, 
+                    <a href="https://docs.google.com/forms/d/e/placeholder-rsvp/viewform" target="_blank">clicca qui per aprirlo in una nuova scheda</a>.
+                </p>
+                
+                <div style="border: 2px solid var(--color-gray-200); border-radius: var(--radius-lg); overflow: hidden; min-height: 600px;">
+                    <iframe 
+                        src="https://docs.google.com/forms/d/e/placeholder-rsvp/viewform?embedded=true" 
+                        width="100%" 
+                        height="600" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        style="border: none;">
+                        Caricamento modulo...
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background-color: var(--color-gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contatti</h2>
+                <p class="section-subtitle">Per qualsiasi domanda o informazione aggiuntiva</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="card-title">Organizzatori</h3>
+                    <div class="card-content">
+                        <div class="contact-info">
+                            <i class="fas fa-user"></i>
+                            <span>Maria Bianchi e Luca Verdi</span>
+                        </div>
+                        <div class="contact-info">
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:festa.neuro2025@example.com">festa.neuro2025@example.com</a></span>
+                        </div>
+                        <div class="contact-info">
+                            <i class="fas fa-phone"></i>
+                            <span><a href="tel:+39123456789">+39 123 456 7890</a></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3 class="card-title">Domande Frequenti</h3>
+                    <div class="card-content">
+                        <p><strong>Q: È possibile portare accompagnatori?</strong></p>
+                        <p>A: Sì, indica il numero di ospiti nel modulo RSVP.</p>
+                        
+                        <p><strong>Q: Ci sono restrizioni alimentari?</strong></p>
+                        <p>A: Specifica eventuali allergie o preferenze nel modulo RSVP.</p>
+                        
+                        <p><strong>Q: Dove posso parcheggiare?</strong></p>
+                        <p>A: Sono disponibili parcheggi nelle vicinanze del ristorante.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3 style="color: var(--color-accent); margin-bottom: var(--space-4);">Festa di Specializzazione in Neurologia 2025</h3>
+                <p>Celebrando l'eccellenza medica e l'amicizia</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#contact" class="footer-link">Contatti</a>
+                <a href="#rsvp" class="footer-link">RSVP</a>
+            </div>
+            
+            <p style="color: var(--color-gray-400); font-size: 0.9rem;">
+                © 2025 Festa di Specializzazione Neurologia. Creato con ❤️ per i nostri specialisti.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Photo Upload Modal -->
+    <div class="modal" id="photoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Carica Foto Anonime</h3>
+                <button class="modal-close" onclick="closePhotoModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-6);">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4 style="color: var(--color-primary); margin-bottom: var(--space-4);">Caricamento Anonimo e Sicuro</h4>
+                <p style="margin-bottom: var(--space-6); color: var(--color-gray-600);">
+                    Le tue foto saranno caricate in modo completamente anonimo e privato. 
+                    Dopo l'evento, tutte le foto saranno raccolte e condivise con i partecipanti 
+                    per creare un album comune dei ricordi.
+                </p>
+                <div style="background: var(--color-secondary); padding: var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-6);">
+                    <p style="margin: 0; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> 
+                        <strong>Privacy garantita:</strong> Non viene registrato chi carica le foto
+                    </p>
+                </div>
+                <a href="https://example.com/upload-photos" target="_blank" class="btn btn-primary btn-large">
+                    <i class="fas fa-external-link-alt"></i> Vai al Caricamento
+                </a>
+                <p style="margin-top: var(--space-4); font-size: 0.9rem; color: var(--color-gray-500);">
+                    Il link si aprirà in una nuova scheda
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.navbar-nav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu if open
+                document.querySelector('.navbar-nav').classList.remove('active');
+            });
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Contribution form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contributionForm');
+            const contributionTypeRadios = document.querySelectorAll('input[name="contributionType"]');
+            const customAmountGroup = document.getElementById('customAmountGroup');
+            const messageTypeRadios = document.querySelectorAll('input[name="messageType"]');
+            const customMessageGroup = document.getElementById('customMessageGroup');
+            const successMessage = document.getElementById('successMessage');
+
+            // Load saved contributions from localStorage
+            loadContributions();
+
+            // Show/hide custom amount field
+            contributionTypeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'custom') {
+                        customAmountGroup.style.display = 'block';
+                    } else {
+                        customAmountGroup.style.display = 'none';
+                    }
+                    updateRadioStyles('contributionType');
+                });
+            });
+
+            // Show/hide custom message field
+            messageTypeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'custom') {
+                        customMessageGroup.style.display = 'block';
+                    } else {
+                        customMessageGroup.style.display = 'none';
+                    }
+                    updateRadioStyles('messageType');
+                });
+            });
+
+            // Update radio option styles
+            function updateRadioStyles(groupName) {
+                const options = document.querySelectorAll(`input[name="${groupName}"]`);
+                options.forEach(option => {
+                    const label = option.closest('.radio-option');
+                    if (option.checked) {
+                        label.classList.add('selected');
+                    } else {
+                        label.classList.remove('selected');
+                    }
+                });
+            }
+
+            // Initialize radio styles
+            updateRadioStyles('contributionType');
+            updateRadioStyles('messageType');
+
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    contributionType: document.querySelector('input[name="contributionType"]:checked').value,
+                    customAmount: document.getElementById('customAmount').value,
+                    name: document.getElementById('contributorName').value,
+                    email: document.getElementById('contributorEmail').value,
+                    messageType: document.querySelector('input[name="messageType"]:checked').value,
+                    customMessage: document.getElementById('customMessage').value,
+                    timestamp: new Date().toISOString()
+                };
+
+                // Validate required fields
+                if (!formData.name.trim()) {
+                    alert('Per favore inserisci il tuo nome.');
+                    return;
+                }
+
+                if (formData.contributionType === 'custom' && (!formData.customAmount || formData.customAmount <= 0)) {
+                    alert('Per favore inserisci un importo valido.');
+                    return;
+                }
+
+                // Save contribution
+                saveContribution(formData);
+                
+                // Show success message
+                successMessage.classList.add('show');
+                
+                // Simulate redirect to Google Form
+                setTimeout(() => {
+                    const googleFormUrl = 'https://docs.google.com/forms/d/e/placeholder-contribution/viewform';
+                    window.open(googleFormUrl, '_blank');
+                    
+                    // Reset form
+                    form.reset();
+                    customAmountGroup.style.display = 'none';
+                    customMessageGroup.style.display = 'none';
+                    updateRadioStyles('contributionType');
+                    updateRadioStyles('messageType');
+                    
+                    // Hide success message after delay
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000);
+                }, 1500);
+            });
+        });
+
+        // In-memory storage for contributions (no localStorage in sandbox)
+        let contributions = [];
+        
+        // Save contribution to memory
+        function saveContribution(contribution) {
+            const amount = contribution.contributionType === 'equal' ? 20 : parseInt(contribution.customAmount);
+            contribution.amount = amount;
+            
+            contributions.push(contribution);
+            updateContributionTotal();
+        }
+
+        // Load and display contributions
+        function loadContributions() {
+            updateContributionTotal();
+        }
+
+        // Update contribution total
+        function updateContributionTotal() {
+            const total = contributions.reduce((sum, contribution) => sum + contribution.amount, 0);
+            document.getElementById('totalContributions').textContent = `€ ${total}`;
+        }
+
+        // Photo modal functionality
+        function openPhotoModal() {
+            document.getElementById('photoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePhotoModal() {
+            document.getElementById('photoModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('photoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePhotoModal();
+            }
+        });
+
+        // Escape key to close modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePhotoModal();
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const elementsToAnimate = document.querySelectorAll('.card, .section-header');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Payment option click handlers
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const paymentName = this.querySelector('.payment-name').textContent;
+                
+                // Add click effect
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+                
+                // Show payment details in an alert or modal
+                // This could be enhanced with a proper modal
+                console.log(`Selected payment method: ${paymentName}`);
+            });
+        });
+    </script>
+</body>
+</html>
