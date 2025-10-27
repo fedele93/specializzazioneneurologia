@@ -152,12 +152,15 @@
             font-weight: 600;
             color: var(--color-primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
         }
         
         .navbar-nav {
             display: flex;
             list-style: none;
-            gap: var(--space-6);
+            gap: var(--space-4);
         }
         
         .nav-link {
@@ -167,6 +170,7 @@
             transition: var(--transition-fast);
             padding: var(--space-2) var(--space-3);
             border-radius: var(--radius-md);
+            white-space: nowrap;
         }
         
         .nav-link:hover {
@@ -181,6 +185,7 @@
             font-size: 1.5rem;
             color: var(--color-primary);
             cursor: pointer;
+            padding: var(--space-2);
         }
         
         /* Hero Section */
@@ -346,6 +351,7 @@
             color: var(--color-primary);
             margin-right: var(--space-3);
             width: 20px;
+            flex-shrink: 0;
         }
         
         .event-schedule {
@@ -412,6 +418,55 @@
         .payment-details {
             color: var(--color-gray-600);
             font-size: 0.9rem;
+        }
+        
+        .payment-link {
+            display: inline-block;
+            margin-top: var(--space-3);
+            padding: var(--space-2) var(--space-4);
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: var(--transition-fast);
+        }
+        
+        .payment-link:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+        }
+        
+        /* Copyable info */
+        .copyable-info {
+            background: var(--color-gray-50);
+            border: 2px dashed var(--color-gray-300);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            margin: var(--space-3) 0;
+            position: relative;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: var(--space-2);
+            right: var(--space-2);
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: var(--transition-fast);
+        }
+        
+        .copy-btn:hover {
+            background: var(--color-primary-dark);
+        }
+        
+        .copy-btn.copied {
+            background: var(--color-success);
         }
         
         /* Forms */
@@ -662,22 +717,6 @@
             animation: fadeInUp 0.6s ease-out forwards;
         }
         
-        /* Contribution Summary */
-        .contribution-summary {
-            background: var(--color-accent);
-            color: var(--color-gray-900);
-            padding: var(--space-6);
-            border-radius: var(--radius-lg);
-            text-align: center;
-            margin-bottom: var(--space-8);
-        }
-        
-        .contribution-total {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: var(--space-2);
-        }
-        
         /* Contact Section */
         .contact-info {
             display: flex;
@@ -737,6 +776,7 @@
             transition: var(--transition-fast);
             opacity: 0;
             visibility: hidden;
+            z-index: 999;
         }
         
         .back-to-top.visible {
@@ -749,7 +789,73 @@
             transform: translateY(-2px);
         }
         
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            right: var(--space-8);
+            background: var(--color-success);
+            color: var(--color-white);
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            z-index: 2001;
+            display: none;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .toast.show {
+            display: flex;
+            animation: slideInRight 0.3s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive iframe */
+        .responsive-iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+        }
+        
+        .responsive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .navbar-brand {
+                font-size: 1.25rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+            
+            .graduates-list {
+                font-size: 1rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .navbar-nav {
                 position: fixed;
@@ -760,28 +866,54 @@
                 flex-direction: column;
                 padding: var(--space-4);
                 box-shadow: var(--shadow-lg);
-                transform: translateY(-100%);
+                transform: translateX(-100%);
                 transition: var(--transition-normal);
+                gap: 0;
             }
             
             .navbar-nav.active {
-                transform: translateY(0);
+                transform: translateX(0);
+            }
+            
+            .nav-link {
+                padding: var(--space-3) var(--space-4);
+                border-bottom: 1px solid var(--color-gray-100);
             }
             
             .mobile-menu-toggle {
                 display: block;
             }
             
+            .hero {
+                padding: 100px 0 var(--space-12);
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
             .hero-subtitle {
-                font-size: 1.125rem;
+                font-size: 1rem;
+            }
+            
+            .graduates-list {
+                font-size: 0.95rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
             }
             
             .section {
                 padding: var(--space-12) 0;
+            }
+            
+            .section-header {
+                margin-bottom: var(--space-8);
             }
             
             .grid-2,
@@ -794,6 +926,14 @@
                 grid-template-columns: 1fr;
             }
             
+            .card {
+                padding: var(--space-6);
+            }
+            
+            .form {
+                padding: var(--space-6);
+            }
+            
             .radio-group {
                 gap: var(--space-2);
             }
@@ -802,35 +942,103 @@
                 flex-direction: column;
                 gap: var(--space-3);
             }
+            
+            .back-to-top {
+                bottom: var(--space-6);
+                right: var(--space-6);
+                width: 45px;
+                height: 45px;
+            }
+            
+            .toast {
+                right: var(--space-4);
+                left: var(--space-4);
+                bottom: 80px;
+            }
+            
+            .event-info {
+                flex-wrap: wrap;
+            }
+            
+            .schedule-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .schedule-time {
+                margin-bottom: var(--space-2);
+            }
+            
+            .responsive-iframe-container {
+                padding-bottom: 100%;
+            }
         }
         
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
             
             .container {
                 padding: 0 var(--space-3);
             }
             
+            .navbar-container {
+                padding: 0 var(--space-3);
+            }
+            
+            .hero-content {
+                padding: 0 var(--space-3);
+            }
+            
             .card {
-                padding: var(--space-6);
+                padding: var(--space-5);
             }
             
             .form {
+                padding: var(--space-5);
+            }
+            
+            .payment-option {
+                padding: var(--space-5);
+            }
+            
+            .cta-button,
+            .btn-large {
+                padding: var(--space-4) var(--space-6);
+                font-size: 1rem;
+            }
+            
+            .photo-upload {
+                padding: var(--space-8) var(--space-4);
+            }
+            
+            .modal-content {
                 padding: var(--space-6);
+            }
+            
+            .copy-btn {
+                position: static;
+                width: 100%;
+                margin-top: var(--space-3);
             }
         }
     </style>
 </head>
 <body>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Copiato!</span>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
             <a href="#home" class="navbar-brand">
-                <i class="fas fa-brain"></i> Neurologia 2025
+                <i class="fas fa-brain"></i> <span>Neurologia 2025</span>
             </a>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#ceremony" class="nav-link">Seduta</a></li>
                 <li><a href="#party" class="nav-link">Festa</a></li>
@@ -839,7 +1047,7 @@
                 <li><a href="#rsvp" class="nav-link">RSVP</a></li>
                 <li><a href="#contact" class="nav-link">Contatti</a></li>
             </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -852,7 +1060,7 @@
             <p class="hero-subtitle">Celebriamo insieme questo importante traguardo</p>
             <div class="graduates-list">
                 <strong>I nostri nuovi e futuri specialisti:</strong><br>
-                Dr. Marco Sozzo • Dr.ssa Antonella  Bianco • Dr.ssa Stefania Scannicchio • Dr.ssa Francesca Mazzeo • Dr. Daniele Graziani • Dr. Vittorio Velucci • Dr.ssa Donata Intini • Dr.ssa Rita Vitobello • Dr.ssa Silvia Grimaldi • Dr. Nicola Marrone • Dr.ssa Barbara Vitucci • Dr. Martino Gentile
+                Dr. Marco Sozzo • Dr.ssa Antonella Bianco • Dr.ssa Stefania Scannicchio • Dr.ssa Francesca Mazzeo • Dr. Daniele Graziani • Dr. Vittorio Velucci • Dr.ssa Donata Intini • Dr.ssa Rita Vitobello • Dr.ssa Silvia Grimaldi • Dr. Nicola Marrone • Dr.ssa Barbara Vitucci • Dr. Martino Gentile
             </div>
             <p style="font-size: 1.125rem; margin-bottom: 2rem;">8 Novembre 2025</p>
             <a href="#rsvp" class="cta-button">
@@ -882,15 +1090,15 @@
                         </div>
                         <div class="event-info">
                             <i class="fas fa-clock"></i>
-                            <span><strong>Ora:</strong> 10:00(da modificare) </span>
+                            <span><strong>Ora:</strong> 10:00 (da confermare)</span>
                         </div>
                         <div class="event-info">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span><strong>Luogo:</strong> Aula Magna, Policlinico di bari (da modificare)</span>
+                            <span><strong>Luogo:</strong> Aula Magna, Policlinico di Bari (da confermare)</span>
                         </div>
                         <div class="event-info">
                             <i class="fas fa-location-arrow"></i>
-                            <span>Piazza Giulio Cesare, 70124 Bari BA(da confermare)</span>
+                            <span>Piazza Giulio Cesare, 70124 Bari BA</span>
                         </div>
                     </div>
                 </div>
@@ -911,7 +1119,7 @@
                         </div>
                         <div class="event-info">
                             <i class="fas fa-external-link-alt"></i>
-                            <span><a href="https://maps.google.com?q=Piazza+Giulio+Cesare,+70124+Bari+BA" target="_blank">Visualizza su Google Maps</a></span>
+                            <span><a href="https://maps.google.com?q=Piazza+Giulio+Cesare,+70124+Bari+BA" target="_blank" style="color: var(--color-primary); text-decoration: underline;">Visualizza su Google Maps</a></span>
                         </div>
                     </div>
                 </div>
@@ -956,7 +1164,7 @@
                         </div>
                         <div class="event-info">
                             <i class="fas fa-external-link-alt"></i>
-                            <span><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.599596171079!2d16.89812531069016!3d41.07774421502656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347e84a8f2bd0eb%3A0xe22650986f7c4b5!2sIl%20Giardino%20dei%20Tempi%20Orto%20Botanico!5e0!3m2!1sit!2ses!4v1761312956993!5m2!1sit!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <span><a href="https://goo.gl/maps/qW8vZ9JhKHLF8qZY7" target="_blank" style="color: var(--color-primary); text-decoration: underline;">Visualizza su Google Maps</a></span>
                         </div>
                     </div>
                 </div>
@@ -988,6 +1196,19 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Google Maps Embed -->
+            <div style="margin-top: var(--space-12);">
+                <h3 style="text-align: center; color: var(--color-primary); margin-bottom: var(--space-6);">Mappa del Ristorante</h3>
+                <div class="responsive-iframe-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.599596171079!2d16.89812531069016!3d41.07774421502656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347e84a8f2bd0eb%3A0xe22650986f7c4b5!2sIl%20Giardino%20dei%20Tempi%20Orto%20Botanico!5e0!3m2!1sit!2ses!4v1761312956993!5m2!1sit!2ses" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1008,9 +1229,10 @@
                     </div>
                     <div class="payment-name">PayPal</div>
                     <div class="payment-details">
-                        <p><strong>Link:</strong> 
-                            <a href=\" https://www.paypal.com/pool/9jrGwxCUag?sr=accr\">Clicca qui</a></p>
-                        <p>Clicca sul link o scansiona il QR code</p>
+                        <p>Paga facilmente tramite PayPal</p>
+                        <a href="https://www.paypal.com/pool/9jrGwxCUag?sr=accr" target="_blank" class="payment-link">
+                            <i class="fas fa-external-link-alt"></i> Vai a PayPal
+                        </a>
                     </div>
                 </div>
                 
@@ -1020,8 +1242,10 @@
                     </div>
                     <div class="payment-name">Satispay</div>
                     <div class="payment-details">
-                        <p><strong>Link:</strong><a href=\"https://web.satispay.com/download/qrcode/S6Y-SVN--773FA0F9-4FC7-42E8-BE8F-EFF926FCFC78?locale=it\">Clicca qui</a>                            
-                            </p>
+                        <p>Paga con Satispay</p>
+                        <a href="https://web.satispay.com/download/qrcode/S6Y-SVN--773FA0F9-4FC7-42E8-BE8F-EFF926FCFC78?locale=it" target="_blank" class="payment-link">
+                            <i class="fas fa-external-link-alt"></i> Vai a Satispay
+                        </a>
                     </div>
                 </div>
                 
@@ -1031,9 +1255,25 @@
                     </div>
                     <div class="payment-name">Bonifico Bancario</div>
                     <div class="payment-details">
-                        <p><strong>IBAN:</strong> IT13U0306941513100000010092</p>
-                        <p><strong>Intestatario:</strong> Fedele Luisi</p>
-                        <p><strong>Causale:</strong> Regalo specializzazione Neurologia</p>
+                        <div class="copyable-info">
+                            <button class="copy-btn" onclick="copyToClipboard('IT13U0306941513100000010092', this)">
+                                <i class="fas fa-copy"></i> Copia IBAN
+                            </button>
+                            <p style="margin: 0;"><strong>IBAN:</strong></p>
+                            <p style="margin: 0; word-break: break-all; padding-right: 80px;">IT13U0306941513100000010092</p>
+                        </div>
+                        <div class="copyable-info">
+                            <button class="copy-btn" onclick="copyToClipboard('Fedele Luisi', this)">
+                                <i class="fas fa-copy"></i> Copia
+                            </button>
+                            <p style="margin: 0;"><strong>Intestatario:</strong> Fedele Luisi</p>
+                        </div>
+                        <div class="copyable-info">
+                            <button class="copy-btn" onclick="copyToClipboard('Regalo specializzazione Neurologia', this)">
+                                <i class="fas fa-copy"></i> Copia
+                            </button>
+                            <p style="margin: 0;"><strong>Causale:</strong> Regalo specializzazione Neurologia</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -1043,7 +1283,11 @@
                     </div>
                     <div class="payment-name">Contanti</div>
                     <div class="payment-details">
-                        <p>Consegna a Fedele Luisi s.p.m. </p>
+                        <p>Consegna a Fedele Luisi</p>
+                        <p style="font-size: 0.85rem; margin-top: var(--space-3);">
+                            <i class="fas fa-phone"></i> 
+                            <a href="tel:+393469556702" style="color: var(--color-primary);">346 955 6702</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1062,7 +1306,7 @@
                         <div class="radio-group">
                             <label class="radio-option">
                                 <input type="radio" name="contributionType" value="equal" checked>
-                                <span><strong>Quota equa:</strong> ES: € 20 a persona </span>
+                                <span><strong>Quota equa:</strong> ES: € 20 a persona</span>
                             </label>
                             <label class="radio-option">
                                 <input type="radio" name="contributionType" value="custom">
@@ -1131,9 +1375,12 @@
                 </div>
                 <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Carica le Tue Foto in Modo Anonimo</h3>
                 <p style="color: var(--color-gray-600); margin-bottom: var(--space-6);">Le foto saranno raccolte in modo privato e condivise con tutti i partecipanti dopo l'evento</p>
-                <button class="btn btn-secondary btn-large" onclick="openPhotoModal()">
-                    <i class="fas fa-upload">https://k00.fr/lheghlcy</i> Carica Foto Adesso
-                </button>
+                <a href="https://k00.fr/lheghlcy" target="_blank" class="btn btn-secondary btn-large">
+                    <i class="fas fa-upload"></i> Carica Foto Adesso
+                </a>
+                <p style="margin-top: var(--space-4); font-size: 0.9rem; color: var(--color-gray-500);">
+                    <i class="fas fa-shield-alt"></i> Upload anonimo e sicuro - Privacy garantita
+                </p>
             </div>
         </div>
     </section>
@@ -1150,18 +1397,14 @@
                 <h3 style="text-align: center; margin-bottom: var(--space-6); color: var(--color-primary);">Modulo RSVP</h3>
                 <p style="text-align: center; color: var(--color-gray-600); margin-bottom: var(--space-6);">
                     Compila il modulo sottostante per confermare la tua presenza. Se il modulo non si carica, 
-                    <a href="https://docs.google.com/forms/d/e/placeholder-rsvp/viewform" target="_blank">clicca qui per aprirlo in una nuova scheda</a>.
+                    <a href="https://docs.google.com/forms/d/e/placeholder-rsvp/viewform" target="_blank" style="color: var(--color-primary); text-decoration: underline;">clicca qui per aprirlo in una nuova scheda</a>.
                 </p>
                 
-                <div style="border: 2px solid var(--color-gray-200); border-radius: var(--radius-lg); overflow: hidden; min-height: 600px;">
+                <div class="responsive-iframe-container">
                     <iframe 
                         src="https://docs.google.com/forms/d/e/placeholder-rsvp/viewform?embedded=true" 
-                        width="100%" 
-                        height="600" 
-                        frameborder="0" 
                         marginheight="0" 
-                        marginwidth="0"
-                        style="border: none;">
+                        marginwidth="0">
                         Caricamento modulo...
                     </iframe>
                 </div>
@@ -1180,22 +1423,21 @@
             <div class="grid grid-2">
                 <div class="card">
                     <div class="card-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-user"></i>
                     </div>
-                    <h3 class="card-title">Organizzatori</h3>
+                    <h3 class="card-title">Organizzatore</h3>
                     <div class="card-content">
                         <div class="contact-info">
                             <i class="fas fa-user"></i>
-                            <span>Maria Bianchi e Luca Verdi</span>
-                        </div>
-                        <div class="contact-info">
-                            <i class="fas fa-envelope"></i>
-                            <span><a href="mailto:festa.neuro2025@example.com">festa.neuro2025@example.com</a></span>
+                            <span><strong>Fedele Luisi</strong></span>
                         </div>
                         <div class="contact-info">
                             <i class="fas fa-phone"></i>
-                            <span><a href="tel:+39123456789">+39 123 456 7890</a></span>
+                            <span><a href="tel:+393469556702" style="color: var(--color-primary); text-decoration: underline;">+39 346 955 6702</a></span>
                         </div>
+                        <p style="margin-top: var(--space-4); font-size: 0.9rem; color: var(--color-gray-600);">
+                            Contattami per qualsiasi informazione sulla festa o per eventuali dubbi sui pagamenti.
+                        </p>
                     </div>
                 </div>
                 
@@ -1206,13 +1448,13 @@
                     <h3 class="card-title">Domande Frequenti</h3>
                     <div class="card-content">
                         <p><strong>Q: È possibile portare accompagnatori?</strong></p>
-                        <p>A: Sì, indica il numero di ospiti nel modulo RSVP.</p>
+                        <p style="margin-bottom: var(--space-4);">A: Sì, indica il numero di ospiti nel modulo RSVP.</p>
                         
                         <p><strong>Q: Ci sono restrizioni alimentari?</strong></p>
-                        <p>A: Specifica eventuali allergie o preferenze nel modulo RSVP.</p>
+                        <p style="margin-bottom: var(--space-4);">A: Specifica eventuali allergie o preferenze nel modulo RSVP.</p>
                         
                         <p><strong>Q: Dove posso parcheggiare?</strong></p>
-                        <p>A: Sono disponibili parcheggi nelle vicinanze del ristorante.</p>
+                        <p style="margin-bottom: 0;">A: Sono disponibili parcheggi nelle vicinanze del ristorante lungo il lungomare.</p>
                     </div>
                 </div>
             </div>
@@ -1228,62 +1470,38 @@
             </div>
             
             <div class="footer-links">
-                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#home" class="footer-link">Home</a>
                 <a href="#contact" class="footer-link">Contatti</a>
                 <a href="#rsvp" class="footer-link">RSVP</a>
             </div>
             
-            <p style="color: var(--color-gray-400); font-size: 0.9rem;">
+            <p style="color: var(--color-gray-400); font-size: 0.9rem; margin-top: var(--space-6);">
                 © 2025 Festa di Specializzazione Neurologia. Creato con ❤️ per i nostri specialisti.
             </p>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#home" class="back-to-top" id="backToTop">
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Torna su">
         <i class="fas fa-arrow-up"></i>
     </a>
-
-    <!-- Photo Upload Modal -->
-    <div class="modal" id="photoModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Carica Foto Anonime</h3>
-                <button class="modal-close" onclick="closePhotoModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div style="text-align: center;">
-                <div style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--space-6);">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h4 style="color: var(--color-primary); margin-bottom: var(--space-4);">Caricamento Anonimo e Sicuro</h4>
-                <p style="margin-bottom: var(--space-6); color: var(--color-gray-600);">
-                    Le tue foto saranno caricate in modo completamente anonimo e privato. 
-                    Dopo l'evento, tutte le foto saranno raccolte e condivise con i partecipanti 
-                    per creare un album comune dei ricordi.
-                </p>
-                <div style="background: var(--color-secondary); padding: var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-6);">
-                    <p style="margin: 0; font-size: 0.9rem;">
-                        <i class="fas fa-info-circle"></i> 
-                        <strong>Privacy garantita:</strong> Non viene registrato chi carica le foto
-                    </p>
-                </div>
-                <a href="https://example.com/upload-photos" target="_blank" class="btn btn-primary btn-large">
-                    <i class="fas fa-external-link-alt"></i> Vai al Caricamento
-                </a>
-                <p style="margin-top: var(--space-4); font-size: 0.9rem; color: var(--color-gray-500);">
-                    Il link si aprirà in una nuova scheda
-                </p>
-            </div>
-        </div>
-    </div>
 
     <script>
         // Navigation functionality
         function toggleMobileMenu() {
-            const nav = document.querySelector('.navbar-nav');
+            const nav = document.getElementById('navMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
             nav.classList.toggle('active');
+            
+            // Change icon
+            const icon = toggle.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         }
 
         // Smooth scrolling for navigation links
@@ -1300,7 +1518,14 @@
                     });
                 }
                 // Close mobile menu if open
-                document.querySelector('.navbar-nav').classList.remove('active');
+                const nav = document.getElementById('navMenu');
+                const toggle = document.querySelector('.mobile-menu-toggle');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    const icon = toggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             });
         });
 
@@ -1312,7 +1537,69 @@
             } else {
                 backToTop.classList.remove('visible');
             }
+            
+            // Update active nav link on scroll
+            updateActiveNavLink();
         });
+
+        // Update active navigation link based on scroll position
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                link.style.background = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = 'var(--color-primary)';
+                    link.style.background = 'var(--color-secondary)';
+                }
+            });
+        }
+
+        // Copy to clipboard functionality
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(function() {
+                // Show success toast
+                showToast('Copiato negli appunti!');
+                
+                // Update button
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copiato!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                showToast('Errore nella copia', 'error');
+                console.error('Errore nella copia: ', err);
+            });
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.style.background = type === 'success' ? 'var(--color-success)' : 'var(--color-error)';
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
 
         // Contribution form functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1322,9 +1609,6 @@
             const messageTypeRadios = document.querySelectorAll('input[name="messageType"]');
             const customMessageGroup = document.getElementById('customMessageGroup');
             const successMessage = document.getElementById('successMessage');
-
-            // Load saved contributions from localStorage
-            loadContributions();
 
             // Show/hide custom amount field
             contributionTypeRadios.forEach(radio => {
@@ -1383,20 +1667,18 @@
 
                 // Validate required fields
                 if (!formData.name.trim()) {
-                    alert('Per favore inserisci il tuo nome.');
+                    showToast('Per favore inserisci il tuo nome.', 'error');
                     return;
                 }
 
                 if (formData.contributionType === 'custom' && (!formData.customAmount || formData.customAmount <= 0)) {
-                    alert('Per favore inserisci un importo valido.');
+                    showToast('Per favore inserisci un importo valido.', 'error');
                     return;
                 }
 
-                // Save contribution
-                saveContribution(formData);
-                
                 // Show success message
                 successMessage.classList.add('show');
+                showToast('Grazie per il tuo contributo!');
                 
                 // Simulate redirect to Google Form
                 setTimeout(() => {
@@ -1418,52 +1700,20 @@
             });
         });
 
-        // In-memory storage for contributions (no localStorage in sandbox)
-        let contributions = [];
-        
-        // Save contribution to memory
-        function saveContribution(contribution) {
-            const amount = contribution.contributionType === 'equal' ? 20 : parseInt(contribution.customAmount);
-            contribution.amount = amount;
-            
-            contributions.push(contribution);
-            updateContributionTotal();
-        }
-
-        // Load and display contributions
-        function loadContributions() {
-            updateContributionTotal();
-        }
-
-        // Update contribution total
-        function updateContributionTotal() {
-            const total = contributions.reduce((sum, contribution) => sum + contribution.amount, 0);
-            document.getElementById('totalContributions').textContent = `€ ${total}`;
-        }
-
-        // Photo modal functionality
-        function openPhotoModal() {
-            document.getElementById('photoModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePhotoModal() {
-            document.getElementById('photoModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('photoModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePhotoModal();
-            }
-        });
-
-        // Escape key to close modal
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closePhotoModal();
-            }
+        // Payment option click handlers
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function(e) {
+                // Don't trigger if clicking on a link or button
+                if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('a') || e.target.closest('button')) {
+                    return;
+                }
+                
+                // Add click effect
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
         });
 
         // Intersection Observer for animations
@@ -1481,28 +1731,26 @@
         }, observerOptions);
 
         // Observe all cards and sections
-        document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('load', function() {
             const elementsToAnimate = document.querySelectorAll('.card, .section-header');
             elementsToAnimate.forEach(el => {
                 observer.observe(el);
             });
         });
 
-        // Payment option click handlers
-        document.querySelectorAll('.payment-option').forEach(option => {
-            option.addEventListener('click', function() {
-                const paymentName = this.querySelector('.payment-name').textContent;
-                
-                // Add click effect
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-                
-                // Show payment details in an alert or modal
-                // This could be enhanced with a proper modal
-                console.log(`Selected payment method: ${paymentName}`);
-            });
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('navMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (nav.classList.contains('active') && 
+                !nav.contains(e.target) && 
+                !toggle.contains(e.target)) {
+                nav.classList.remove('active');
+                const icon = toggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
     </script>
 </body>
