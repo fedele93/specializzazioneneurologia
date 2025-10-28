@@ -1291,73 +1291,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Contribution Form -->
-            <div class="form">
-                <h3 style="margin-bottom: var(--space-6); color: var(--color-primary); text-align: center;">Registra il Tuo Contributo</h3>
-                
-                <div id="successMessage" class="success-message">
-                    <i class="fas fa-check-circle"></i> Grazie per il tuo contributo! Ti abbiamo reindirizzato al modulo per completare la registrazione.
-                </div>
-                
-                <form id="contributionForm">
-                    <div class="form-group">
-                        <label class="form-label">Tipo di Contributo</label>
-                        <div class="radio-group">
-                            <label class="radio-option">
-                                <input type="radio" name="contributionType" value="equal" checked>
-                                <span><strong>Quota equa:</strong> ES: € 20 a persona</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="contributionType" value="custom">
-                                <span><strong>Importo personalizzato</strong></span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group" id="customAmountGroup" style="display: none;">
-                        <label for="customAmount" class="form-label">Importo Personalizzato (€)</label>
-                        <input type="number" id="customAmount" class="form-input" min="1" step="1">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="contributorName" class="form-label">Nome e Cognome *</label>
-                        <input type="text" id="contributorName" class="form-input" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="contributorEmail" class="form-label">Email (opzionale)</label>
-                        <input type="email" id="contributorEmail" class="form-input">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Messaggio di Auguri</label>
-                        <div class="radio-group">
-                            <label class="radio-option">
-                                <input type="radio" name="messageType" value="generic" checked>
-                                <span><strong>Messaggio generico:</strong> "Congratulazioni per il traguardo raggiunto! Auguri per il futuro!"</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="messageType" value="custom">
-                                <span><strong>Messaggio personalizzato</strong></span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group" id="customMessageGroup" style="display: none;">
-                        <label for="customMessage" class="form-label">Il Tuo Messaggio</label>
-                        <textarea id="customMessage" class="form-textarea" placeholder="Scrivi il tuo messaggio di auguri personalizzato..."></textarea>
-                    </div>
-                    
-                    <p style="font-size: 0.9rem; color: var(--color-gray-600); margin-bottom: var(--space-6); text-align: center;">
-                        <i class="fas fa-info-circle"></i> Tutti i contributi sono volontari. Dopo aver inviato questo modulo, sarai reindirizzato al modulo Google per completare la registrazione.
-                    </p>
-                    
-                    <button type="submit" class="btn btn-primary btn-large btn-full">
-                        <i class="fas fa-heart"></i> Registra Contributo
-                    </button>
-                </form>
-            </div>
         </div>
     </section>
 
@@ -1394,15 +1327,15 @@
             </div>
             
             <div class="card" style="max-width: 800px; margin: 0 auto;">
-                <h3 style="text-align: center; margin-bottom: var(--space-6); color: var(--color-primary);">Modulo RSVP</h3>
+                <h3 style="text-align: center; margin-bottom: var(--space-6); color: var(--color-primary);">Modulo</h3>
                 <p style="text-align: center; color: var(--color-gray-600); margin-bottom: var(--space-6);">
                     Compila il modulo sottostante per confermare la tua presenza. Se il modulo non si carica, 
-                    <a href="https://docs.google.com/forms/d/e/placeholder-rsvp/viewform" target="_blank" style="color: var(--color-primary); text-decoration: underline;">clicca qui per aprirlo in una nuova scheda</a>.
+                    <a href="https://forms.gle/HKtoiwEuEiS9cWz89" target="_blank" style="color: var(--color-primary); text-decoration: underline;">clicca qui per aprirlo in una nuova scheda</a>.
                 </p>
                 
                 <div class="responsive-iframe-container">
                     <iframe 
-                        src="https://docs.google.com/forms/d/e/placeholder-rsvp/viewform?embedded=true" 
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSfYQKZhLnGDSssPON3hQsPzZs-FoJ0bm78GwP0NRaY1A9g2Rg/viewform?embedded=true" 
                         marginheight="0" 
                         marginwidth="0">
                         Caricamento modulo...
@@ -1600,105 +1533,6 @@
                 toast.classList.remove('show');
             }, 3000);
         }
-
-        // Contribution form functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contributionForm');
-            const contributionTypeRadios = document.querySelectorAll('input[name="contributionType"]');
-            const customAmountGroup = document.getElementById('customAmountGroup');
-            const messageTypeRadios = document.querySelectorAll('input[name="messageType"]');
-            const customMessageGroup = document.getElementById('customMessageGroup');
-            const successMessage = document.getElementById('successMessage');
-
-            // Show/hide custom amount field
-            contributionTypeRadios.forEach(radio => {
-                radio.addEventListener('change', function() {
-                    if (this.value === 'custom') {
-                        customAmountGroup.style.display = 'block';
-                    } else {
-                        customAmountGroup.style.display = 'none';
-                    }
-                    updateRadioStyles('contributionType');
-                });
-            });
-
-            // Show/hide custom message field
-            messageTypeRadios.forEach(radio => {
-                radio.addEventListener('change', function() {
-                    if (this.value === 'custom') {
-                        customMessageGroup.style.display = 'block';
-                    } else {
-                        customMessageGroup.style.display = 'none';
-                    }
-                    updateRadioStyles('messageType');
-                });
-            });
-
-            // Update radio option styles
-            function updateRadioStyles(groupName) {
-                const options = document.querySelectorAll(`input[name="${groupName}"]`);
-                options.forEach(option => {
-                    const label = option.closest('.radio-option');
-                    if (option.checked) {
-                        label.classList.add('selected');
-                    } else {
-                        label.classList.remove('selected');
-                    }
-                });
-            }
-
-            // Initialize radio styles
-            updateRadioStyles('contributionType');
-            updateRadioStyles('messageType');
-
-            // Form submission
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = {
-                    contributionType: document.querySelector('input[name="contributionType"]:checked').value,
-                    customAmount: document.getElementById('customAmount').value,
-                    name: document.getElementById('contributorName').value,
-                    email: document.getElementById('contributorEmail').value,
-                    messageType: document.querySelector('input[name="messageType"]:checked').value,
-                    customMessage: document.getElementById('customMessage').value,
-                    timestamp: new Date().toISOString()
-                };
-
-                // Validate required fields
-                if (!formData.name.trim()) {
-                    showToast('Per favore inserisci il tuo nome.', 'error');
-                    return;
-                }
-
-                if (formData.contributionType === 'custom' && (!formData.customAmount || formData.customAmount <= 0)) {
-                    showToast('Per favore inserisci un importo valido.', 'error');
-                    return;
-                }
-
-                // Show success message
-                successMessage.classList.add('show');
-                showToast('Grazie per il tuo contributo!');
-                
-                // Simulate redirect to Google Form
-                setTimeout(() => {
-                    const googleFormUrl = 'https://docs.google.com/forms/d/e/placeholder-contribution/viewform';
-                    window.open(googleFormUrl, '_blank');
-                    
-                    // Reset form
-                    form.reset();
-                    customAmountGroup.style.display = 'none';
-                    customMessageGroup.style.display = 'none';
-                    updateRadioStyles('contributionType');
-                    updateRadioStyles('messageType');
-                    
-                    // Hide success message after delay
-                    setTimeout(() => {
-                        successMessage.classList.remove('show');
-                    }, 5000);
-                }, 1500);
-            });
-        });
 
         // Payment option click handlers
         document.querySelectorAll('.payment-option').forEach(option => {
