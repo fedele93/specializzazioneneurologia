@@ -1293,18 +1293,52 @@
     <section id="photos" class="section" style="background-color: var(--color-gray-50);">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Condividi le Tue Foto</h2>
-                <p class="section-subtitle">Carica le tue foto in modo anonimo per creare un album condiviso dei ricordi</p>
+                <h2 class="section-title">Galleria Fotografica</h2>
+                <p class="section-subtitle">Visualizza e condividi le foto della nostra celebrazione</p>
             </div>
             
+            <!-- Photo Gallery Viewer -->
+            <div class="card" style="margin-bottom: var(--space-12);">
+                <div class="card-icon" style="margin: 0 auto; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);">
+                    <i class="fas fa-images" style="color: white;"></i>
+                </div>
+                <h3 class="card-title" style="text-align: center;">Foto della Festa</h3>
+                <div class="card-content">
+                    <p style="text-align: center; margin-bottom: var(--space-6); color: var(--color-gray-600);">
+                        Guarda tutte le foto che sono state condivise finora. La galleria si aggiorna automaticamente con ogni nuovo caricamento.
+                    </p>
+                    
+                    <!-- Embedded Gallery -->
+                    <div style="position: relative; width: 100%; padding-bottom: 75%; height: 0; overflow: hidden; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); background: var(--color-gray-100); margin-bottom: var(--space-6);">
+                        <iframe 
+                            src="https://k00.fr/p0jnrud7" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <a href="https://k00.fr/p0jnrud7" target="_blank" class="btn btn-primary btn-large">
+                            <i class="fas fa-external-link-alt"></i> Apri Galleria a Schermo Intero
+                        </a>
+                    </div>
+                    
+                    <p style="text-align: center; margin-top: var(--space-4); font-size: 0.9rem; color: var(--color-gray-500);">
+                        <i class="fas fa-info-circle"></i> Clicca sul pulsante per visualizzare la galleria in una nuova finestra
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Photo Upload -->
             <div class="photo-upload">
                 <div class="upload-icon">
                     <i class="fas fa-camera"></i>
                 </div>
-                <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Carica le Tue Foto in Modo Anonimo</h3>
-                <p style="color: var(--color-gray-600); margin-bottom: var(--space-6);">Le foto saranno raccolte in modo privato e condivise con tutti i partecipanti dopo l'evento</p>
+                <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Aggiungi le Tue Foto</h3>
+                <p style="color: var(--color-gray-600); margin-bottom: var(--space-6);">Carica le tue foto in modo anonimo per arricchire l'album dei ricordi</p>
                 <a href="https://k00.fr/lheghlcy" target="_blank" class="btn btn-secondary btn-large">
-                    <i class="fas fa-upload"></i> Carica Foto Adesso
+                    <i class="fas fa-upload"></i> Carica Nuove Foto
                 </a>
                 <p style="margin-top: var(--space-4); font-size: 0.9rem; color: var(--color-gray-500);">
                     <i class="fas fa-shield-alt"></i> Upload anonimo e sicuro - Privacy garantita
